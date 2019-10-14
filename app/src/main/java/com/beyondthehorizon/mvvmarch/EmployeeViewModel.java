@@ -13,10 +13,11 @@ public class EmployeeViewModel extends AndroidViewModel {
 
     public EmployeeViewModel(@NonNull Application application) {
         super(application);
-        employeeRepository = new EmployeeRepository();
+        employeeRepository = new EmployeeRepository(application);
     }
 
     public LiveData<List<Employee>> getAllEmployees() {
-        return employeeRepository.getMutableLiveData();
+        employeeRepository.getMutableLiveData();
+        return employeeRepository.getAllEvents();
     }
 }

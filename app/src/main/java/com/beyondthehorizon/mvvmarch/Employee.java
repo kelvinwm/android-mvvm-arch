@@ -3,14 +3,20 @@ package com.beyondthehorizon.mvvmarch;
 import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "employee_table_two")
 public class Employee {
     @SerializedName("id")
+    @PrimaryKey
     private Long id;
+
 
     @SerializedName("email")
     private String email;
@@ -24,6 +30,13 @@ public class Employee {
     @SerializedName("avatar")
     private String avatar;
 
+    public Employee(Long id, String email, String firstName, String lastName, String avatar) {
+        this.id = id;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.avatar = avatar;
+    }
     public Long getId() {
         return id;
     }
