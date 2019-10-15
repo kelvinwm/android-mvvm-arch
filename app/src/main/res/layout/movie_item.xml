@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:kamata="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.beyondthehorizon.fullappprac.model.MovieModle" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            bind:picha="@{movie.imageUrl}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/movieTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{movie.title}" />
+
+                <TextView
+                    android:id="@+id/releaseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{movie.release_date}" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/movieRatings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{movie.ratings}" />
+
+            <TextView
+                android:id="@+id/movieDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{movie.description}" />
+
+        </LinearLayout>
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
