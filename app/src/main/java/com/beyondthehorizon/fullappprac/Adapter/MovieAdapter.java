@@ -45,7 +45,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
         MovieItemBinding movieItemBinding;
-        View view;
 
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
