@@ -44,6 +44,7 @@ public class Repository {
                 for (MovieModle movie : movieDbResponse.getResults()) {
 //                    movieDao.insertMovie(movie);
                     saveToLocalDb(movie);
+                    Log.d("MIMI", "onResponse: "+movie);
 
                 }
             }

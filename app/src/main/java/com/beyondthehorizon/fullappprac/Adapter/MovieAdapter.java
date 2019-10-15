@@ -1,5 +1,6 @@
 package com.beyondthehorizon.fullappprac.Adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,12 +24,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         MovieItemBinding movieItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
                 R.layout.movie_item, parent, false);
-        return new MovieViewHolder(movieItemBinding);
+        return new MovieViewHolder(movieItemBinding.getRoot());
     }
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-        MovieModle movieModle = movieModles.get(position);
+        final MovieModle movieModle = movieModles.get(position);
         holder.movieItemBinding.setMovie(movieModle);
     }
 
@@ -44,10 +45,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
         MovieItemBinding movieItemBinding;
+        View view;
 
-        public MovieViewHolder(@NonNull MovieItemBinding itemView) {
-            super(itemView.getRoot());
-            movieItemBinding = itemView;
+        public MovieViewHolder(@NonNull View itemView) {
+            super(itemView);
+            movieItemBinding = DataBindingUtil.bind(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MovieModle movieModle = movieItemBinding.getMovie();
+                    Log.d("MIMI", "onClick: " + movieModle.getTitle());
+                }
+            });
         }
     }
 }

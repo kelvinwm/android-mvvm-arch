@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         moviesViewModel.getPopularMovies().observe(this, new Observer<List<MovieModle>>() {
             @Override
             public void onChanged(List<MovieModle> movieModles) {
-                Toast.makeText(MainActivity.this, "here", Toast.LENGTH_LONG).show();
                 movieAdapter.setMovieList((ArrayList<MovieModle>) movieModles);
             }
         });
